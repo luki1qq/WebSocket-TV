@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reloj en Canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200;
+        canvas.height = 200;
+        function drawText() {
+            // Borrar el canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Obtener la hora actual
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+
+            // Dibujar el texto
+            ctx.font = '24px Arial';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(time, canvas.width / 2, canvas.height / 2);
+        }
+
+        setInterval(drawText, 1000);
+
+    </script>
+</body>
+
+</html>
